@@ -1,13 +1,14 @@
 import { useState } from "react";
-
+// bg-gradient-to-r from-violet-800 via-indigo-600 to-sky-500
+// hover:bg-blue-400
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-blue-500 p-4  shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-gradient-to-r from-violet-800 via-indigo-600 to-sky-500 p-4 shadow-md fixed top-0 left-0 w-full z-50 ">
       <nav className="container mx-auto flex justify-between items-center">
         {/* Brand Name */}
-        <div className="text-white font-bold text-xl">MyWebsite</div>
+        <div className="text-white font-bold text-3.5xl">INNOVIX SOLUTIONS</div>
 
         {/* Hamburger icon */}
         <button
