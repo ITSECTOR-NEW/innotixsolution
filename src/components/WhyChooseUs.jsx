@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 const cardData = [
   {
@@ -26,32 +26,83 @@ const cardData = [
 
 const WhyChooseUs = () => {
   return (
-    <div className="py-16 justify-center items-center bg-gray-100">
-      <h2 className="text-3xl font-bold text-center mb-8">Why Choose Us?</h2>
-      <p className="text-center mb-12 text-gray-600">
-        Our hundreds of satisfied clients already know what you are about to
-        find out.
-      </p>
+    <section className="w-full py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16 opacity-0 animate-fade-slide-up">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Why Choose Us?
+          </h2>
+          <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Our hundreds of satisfied clients already know what you are about to
+            find out.
+          </p>
+        </div>
 
-      <div className="flex flex-wrap justify-center gap-8">
-        {cardData.map((card) => (
-          <motion.div
-            key={card.id}
-            className="w-80 p-6 bg-white rounded-lg shadow-lg text-center"
-            whileHover={{
-              y: -10,
-              boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-            }}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
-          >
-            <div className="text-5xl mb-4">{card.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-            <p className="text-gray-600">{card.description}</p>
-          </motion.div>
-        ))}
+        {/* Cards */}
+        <div className="flex flex-wrap justify-center gap-8">
+          {cardData.map((card, index) => (
+            <div
+              key={card.id}
+              className="w-full md:w-96 bg-white rounded-xl shadow-lg p-8
+                transform transition-all duration-500 hover:shadow-2xl
+                opacity-0 animate-fade-slide-up"
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              {/* Card Content */}
+              <div className="relative z-10">
+                <div
+                  className="text-6xl mb-6 transform transition-transform duration-300
+                  hover:scale-110 hover:rotate-12"
+                >
+                  {card.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  {card.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
+
+              {/* Decorative Elements */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full 
+                -mr-16 -mt-16 transform transition-transform duration-500 
+                group-hover:scale-150"
+              ></div>
+              <div
+                className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 rounded-full 
+                -ml-16 -mb-16 transform transition-transform duration-500 
+                group-hover:scale-150"
+              ></div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
+
+// Add required animations
+const style = document.createElement("style");
+style.textContent = `
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-slide-up {
+    animation: fadeSlideUp 0.8s ease-out forwards;
+  }
+`;
+document.head.appendChild(style);
 
 export default WhyChooseUs;
