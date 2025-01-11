@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="container mx-auto flex justify-between items-center">
         {/* Brand Name */}
         <div className="text-white font-bold text-2xl sm:text-3xl lg:text-4xl">
-          MyWebsite
+          Innotix Solution
         </div>
 
         {/* Hamburger Icon */}
