@@ -8,7 +8,7 @@ import {
 
 const ContactUs = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "919109470875";
+    const phoneNumber = "+919109470875";
     const message = "Hello, I would like to know more about your services.";
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
